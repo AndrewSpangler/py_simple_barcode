@@ -1,0 +1,14 @@
+{
+	"name":"py_simple_barcode",
+	"author":"Andrew Spangler",
+	"version":"0.2.0",
+	"license":"GPLv3",
+	"email":"AndrewSpangler@users.noreply.github.com",
+	"description":"A small Code 39 barcode generator using PIL and the Libre Barcode 39 font family",
+	"requirements":["pillow"],
+	"url":"https://github.com/AndrewSpangler/",
+	"changelog": {
+		"0.0.0":"Push",
+		"0.2.0":"Move to new build system."
+	}
+}

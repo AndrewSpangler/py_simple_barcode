@@ -1,0 +1,10 @@
+*__pycache__
+dist/
+build/
+token.txt
+*.egg-info
+Pipfile
+Pipfile.lock
+pyproject.toml
+py
+CHECKLIST_*
