@@ -30,12 +30,8 @@ if __name__ == "__main__":
         },
         "project": {
             "name": (name := settings["name"]),
-            "author": (author := settings["author"]),
-            "url": (baseurl := settings["url"] + f"{name}/"),
             "version": settings["version"],
             "description": settings["description"],
-            "maintainter": author,
-            "copyright": f"Copyright 2022, {author}",
             "readme": "README.md",
             "requires-python": ">=3.8",
             "classifiers": [
@@ -53,8 +49,8 @@ if __name__ == "__main__":
             "keywords": [],
         },
         "project.urls": {
-            '"Homepage"': baseurl,
-            '"Bug Tracker"': baseurl + "issues",
+            '"Homepage"': settings["url"],
+            '"Bug Tracker"': settings["url"] + "issues",
         },
     }
 
@@ -66,8 +62,7 @@ if __name__ == "__main__":
 
     # Regenerate README.md
     with open(join(root, "README.md"), "w+") as f:
-        readme = generate_readme(data, settings["changelog"])
-            f.write(readme)
+        f.write(readme := generate_readme(data, settings["changelog"]))
 
     # Regenerate requirements.txt
     with open(join(root, "requirements.txt"), "w+") as f:

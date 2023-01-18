@@ -159,11 +159,9 @@ def generate_readme(tables: dict, changelog: dict):
 
     gen = readme_generator(title=f"{name} {version}", slogan=description)
     gen.set_changelog(changelog)
-    gen.set_slogan(slogan)
-    for i in example_images:
-        gen.add_image((i, example_images[i]))
+    gen.set_header_images(example_images)
     gen.add_heading_1("About")
-    gen.add_paragraph(about_text)
+    gen.add_paragraph(about)
     gen.increase_toc_depth()
     gen.add_heading_2("Installation")
     gen.add_paragraph(installation_message)
@@ -190,9 +188,9 @@ def generate_readme(tables: dict, changelog: dict):
     gen.add_code_block(make_barcode_example)
     gen.decrease_toc_depth()
     gen.add_heading_2("The Encoder")
-    handle_class_list([Encoder])
+    gen.handle_class_list([Encoder])
     gen.add_heading_2("Functions")
-    handle_function_list(
+    gen.handle_function_list(
         [
             make_barcode,
             encode_39,
